@@ -63,6 +63,7 @@ class Coordinator:
         def stream_watchdog(stream_name, stream):
             """"Write the payload commands stdout and stderr to the main processes stdout and stderr"""
             for line in stream:
+                line = line.decode("utf-8")
                 if stream_name == 'STDOUT':
                     sys.stdout.write(line)
                 elif stream_name == 'STDERR':
